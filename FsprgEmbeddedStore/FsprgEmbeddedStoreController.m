@@ -237,7 +237,9 @@
 
 - (void)webView:(WebView *)sender runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WebFrame *)frame
 {
-	NSRunAlertPanel(@"Alert", message, @"OK", nil, nil);
+//	NSRunAlertPanel(@"Alert", message, @"OK", nil, nil);
+	NSAlert	*myAlert = [NSAlert alertWithMessageText:message defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@""];
+	[myAlert runModal];
 }
 
 - (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request
