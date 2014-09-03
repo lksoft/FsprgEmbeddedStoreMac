@@ -31,6 +31,7 @@ static NSString * const kContactLname = @"contact_lname";
 static NSString * const kContactEmail = @"contact_email";
 static NSString * const kContactCompany = @"contact_company";
 static NSString * const kContactPhone = @"contact_phone";
+static NSString * const kQuantity = @"quantity";
 
 static NSMutableDictionary *keyPathsForValuesAffecting; 
 
@@ -324,6 +325,13 @@ static NSMutableDictionary *keyPathsForValuesAffecting;
 - (void)setContactPhone:(NSString *)aContactPhone
 {
 	[self setObject:aContactPhone forKey:kContactPhone];
+}
+
+- (NSInteger)quantity {
+    return [[[self raw] objectForKey:kQuantity] integerValue];
+}
+- (void)setQuantity:(NSInteger)aQuantity {
+	[self setObject:[NSString stringWithFormat:@"%@", @(aQuantity)] forKey:kQuantity];
 }
 
 - (void)dealloc

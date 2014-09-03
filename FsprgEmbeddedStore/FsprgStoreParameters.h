@@ -115,5 +115,7 @@ extern NSString * const kFsprgModeTest;
 - (void)setContactCompany:(NSString *)aContactCompany;
 - (NSString *)contactPhone;
 - (void)setContactPhone:(NSString *)aContactPhone;
+- (NSInteger)quantity;
+- (void)setQuantity:(NSInteger)aQuantity;
 
 @end
