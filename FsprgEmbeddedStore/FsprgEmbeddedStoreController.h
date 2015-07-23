@@ -14,7 +14,11 @@
 /*!
  * Controller for FastSpring's embedded store.
  */
-@interface FsprgEmbeddedStoreController : NSObject {
+@interface FsprgEmbeddedStoreController : NSObject
+#ifdef MAC_OS_X_VERSION_10_11
+<WebFrameLoadDelegate, WebUIDelegate, WebResourceLoadDelegate>
+#endif
+{
     WebView* webView;
     id <FsprgEmbeddedStoreDelegate> delegate;
     NSString *storeHost;
