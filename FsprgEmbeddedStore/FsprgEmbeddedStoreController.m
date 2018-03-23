@@ -289,9 +289,11 @@
 
 - (void)webView:(WebView *)sender runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WebFrame *)frame
 {
-	NSString *title = [sender mainFrameTitle];
-	NSAlert *alertPanel = [NSAlert alertWithMessageText:title defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"%@", message];
-	[alertPanel beginSheetModalForWindow:[sender window] modalDelegate:nil didEndSelector:NULL contextInfo:NULL];
+	NSString * title = [sender mainFrameTitle];
+	NSAlert * alertPanel = [NSAlert new];
+	alertPanel.messageText = title;
+	alertPanel.informativeText = message;
+	[alertPanel beginSheetModalForWindow:sender.window completionHandler:nil];
 }
 
 - (NSUInteger)webView:(WebView *)sender dragDestinationActionMaskForDraggingInfo:(id <NSDraggingInfo>)draggingInfo
