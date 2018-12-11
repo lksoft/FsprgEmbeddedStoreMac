@@ -295,6 +295,7 @@
 	alertPanel.messageText = title;
 	alertPanel.informativeText = message;
 	[alertPanel beginSheetModalForWindow:sender.window completionHandler:nil];
+	[alertPanel autorelease];
 }
 
 - (NSUInteger)webView:(WebView *)sender dragDestinationActionMaskForDraggingInfo:(id <NSDraggingInfo>)draggingInfo
